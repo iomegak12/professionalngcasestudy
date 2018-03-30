@@ -1,0 +1,7 @@
+.box:hover {
+    background-color: floralwhite;
+    cursor: pointer;
+    -moz-box-shadow: 13px 10px 29px #000000;
+    -webkit-box-shadow: 13px 10px 29px #000000;
+    box-shadow: 13px 10px 29px #000000;
+}
