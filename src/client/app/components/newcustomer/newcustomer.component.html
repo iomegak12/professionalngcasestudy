@@ -1,0 +1,137 @@
+<div>
+    <header id="head" class="secondary"></header>
+
+    <!-- container -->
+    <div class="container">
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li class="active">New Customer</li>
+        </ol>
+
+        <br/>
+
+        <div class="row">
+            <div class='col-md-12'>
+                <div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="well well-sm">
+                                <h5>New Customer Portfolio Management</h5>
+                                <h6>This would help to create a new customer record in the CRM System</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-10">
+                            <form [formGroup]='customerModel' (ngSubmit)='saveCustomer()' class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="inputCustomerId" class="col-sm-2 control-label">Customer Id:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" formControlName='customerId' readonly class="form-control" 
+                                            name="customerId" id="inputCustomerId" placeholder="Enter Customer Name Here ..."
+                                        />
+                                        <p class="form-control-static"> {{ customerModel.id }} </p>
+                                        <input type="hidden" formControlName='customerId' name="customerId" id="inputCustomerId" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputCustomerName" class="col-sm-2 control-label">Customer Name:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" formControlName='name' class="form-control" name="name" id="inputCustomerName" placeholder="Enter Customer Name Here ..."
+                                        />
+                                        <div class="text-danger" *ngIf="customerModel.get('name').hasError('required') && customerModel.get('name').touched">
+                                            Invalid Customer Name Specified!
+                                        </div>
+
+                                        <div class="text-danger" *ngIf="customerModel.get('name').hasError('maxlength') && customerModel.get('name').touched">
+                                            Customer Name should not have more than 15 characters.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCustomerAddress" class="col-sm-2 control-label">Business Address:</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" formControlName='address' name="address" id="inputCustomerAddress" placeholder="Enter Customer Address Here ...">
+                                        </textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCreditLimit" class="col-sm-2 control-label">Credit Limit:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" formControlName='credit' name="credit" id="inputCreditLimit" placeholder="Enter Credit Limit Here ..."
+                                        />
+
+                                        <div class="text-danger" *ngIf="customerModel.get('credit').hasError('required') && customerModel.get('credit').touched">
+                                            Credit limit Requires a Valid Value!
+                                        </div>
+
+                                        <div class="text-danger" *ngIf="customerModel.get('credit').hasError('creditLimitValidation') && customerModel.get('credit').touched">
+                                            Credit Limit value should be between 10000 and 50000
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputCustomerPhone" class="col-sm-2 control-label">Email Id:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" formControlName='email' name="phone" id="inputCustomerPhone" placeholder="Enter Customer Phone Here ..."
+                                        />
+                                        <div class="text-danger" *ngIf="customerModel.get('email').hasError('pattern') && customerModel.get('email').touched">
+                                            Invalid Email Id Specified!
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputCustomerPhone" class="col-sm-2 control-label">Phone Number:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" formControlName='phone' name="phone" id="inputCustomerPhone" placeholder="Enter Customer Phone Here ..."
+                                        />
+                                        <div class="text-danger" *ngIf="customerModel.get('phone').hasError('pattern') && customerModel.get('phone').touched">
+                                            Invalid Business Phone Number Specified (00000-00000)
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" formControlName='status' name="status" /> Active Status
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCustomerRemarks" class="col-sm-2 control-label">Customer Remarks:</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" formControlName='remarks' name="remarks" id="inputCustomerRemarks" placeholder="Enter Customer Remarks Here ...">
+                                </textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <input type="submit" [disabled]='customerModel.invalid' class="btn btn-default" value="Save" />
+                                        <input type="reset" value="Reset" class="btn btn-danger" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf='isProcessing'>
+    Processing New Customer Record ... Please Wait ...
+</div>
+
+<div *ngIf='errorMessage' class='text-danger'>
+    Error Occurred, Details : {{ errorMessage }}
+</div>

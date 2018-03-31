@@ -58,8 +58,14 @@ export const SME_OUTPUT_FORMATS: SourceMapExplorerOutputFormat = {
  */
 export class SeedConfig {
 
-  DEV_CUSTOMER_SERVICE_URL = 'http://localhost:9999';
-  PROD_CUSTOMER_SERVICE_URL = 'http://ramasuspc.intsol.in:9999';
+  DEV_CUSTOMER_SERVICE_URL = 'http://ip172-18-0-10-bavlnevut88g0090h9c0-8080.direct.labs.play-with-docker.com';
+  PROD_CUSTOMER_SERVICE_URL = 'http://ip172-18-0-10-bavlnevut88g0090h9c0-8080.direct.labs.play-with-docker.com';
+
+  DEV_NOTIFICATION_SERVICE_URL = 'http://ip172-18-0-10-bavlnevut88g0090h9c0-8080.direct.labs.play-with-docker.com';
+  PROD_NOTIFICATION_SERVICE_URL = 'http://ip172-18-0-10-bavlnevut88g0090h9c0-8080.direct.labs.play-with-docker.com';
+
+  DEV_AUTH_SERVICE_URL = 'http://ip172-18-0-10-bavlnevut88g0090h9c0-8080.direct.labs.play-with-docker.com';
+  PROD_AUTH_SERVICE_URL = 'http://ip172-18-0-10-bavlnevut88g0090h9c0-8080.direct.labs.play-with-docker.com';
 
   /**
    * The port where the application will run.

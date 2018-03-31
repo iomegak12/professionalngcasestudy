@@ -6,8 +6,12 @@
         <a routerLink='about-us'>About</a>
     </li>
 
-    <li>
+    <li *ngIf='isAuthenticated'>
         <a routerLink='crm-system'>Customers</a>
+    </li>
+
+    <li *ngIf='isAuthenticated'>
+        <a routerLink='new-customer'>New Customer</a>
     </li>
 
     <li class="dropdown">
@@ -26,7 +30,12 @@
     <li>
         <a href="contact.html">Contact</a>
     </li>
-    <li>
-        <a class="btn" href="signin.html">SIGN IN / SIGN UP</a>
+
+    <li *ngIf='!isAuthenticated'>
+        <a class="btn" routerLink='login'>SIGN IN / SIGN UP</a>
+    </li>
+
+    <li *ngIf='isAuthenticated'>
+        <span style='color: white;'> Welcome {{ userName }}, <a style="color: white;" class="btn" (click)='logout()'>Signout</a></span>
     </li>
 </ul>

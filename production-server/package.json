@@ -1,0 +1,16 @@
+{
+  "name": "production-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ngsw-worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"./node_modules/.bin/http-server -p 9090"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}

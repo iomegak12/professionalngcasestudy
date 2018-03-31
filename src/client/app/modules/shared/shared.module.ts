@@ -14,14 +14,15 @@ import AboutusComponent from '../../components/aboutus/aboutus.component';
 import VacanciesComponent from '../../components/vacancies/vacancies.component';
 
 import sharedRouteDefinition from '../../routing/shared/shared.routes';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-    imports: [RouterModule, sharedRouteDefinition],
+    imports: [CommonModule, RouterModule, sharedRouteDefinition],
     declarations: [
         LayoutComponent,
         ContactAddressComponnet,
         HomeComponent, FaqComponent, ReasonsComponent, SocialLinksComponent,
-        AboutusComponent,VacanciesComponent,
+        AboutusComponent, VacanciesComponent,
         HeaderComponent, NavigationComponent, FooterComponent
     ],
     exports: [LayoutComponent]
